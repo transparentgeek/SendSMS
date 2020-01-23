@@ -1,0 +1,118 @@
+{
+  "EDITOR_STATE": {
+    "allProjectFiles": {
+      "d9b0702a-78cd-4065-83e0-6859d244c900": {
+        "id": "d9b0702a-78cd-4065-83e0-6859d244c900",
+        "parent": null,
+        "name": "SendSMS",
+        "type": "DIRECTORY",
+        "isDirectory": true,
+        "children": [
+          "b3926aee-2887-415f-9241-e1b899c34b49"
+        ],
+        "isRemovable": false,
+        "filePath": "SendSMS"
+      },
+      "b3926aee-2887-415f-9241-e1b899c34b49": {
+        "id": "b3926aee-2887-415f-9241-e1b899c34b49",
+        "parent": "d9b0702a-78cd-4065-83e0-6859d244c900",
+        "name": "lambda.js",
+        "type": "JS_LAMBDA",
+        "isDirectory": false,
+        "children": [],
+        "isRemovable": true,
+        "filePath": "SendSMS/lambda.js",
+        "config": {
+          "runtime": "nodejs10.x",
+          "handler": "handler",
+          "timeout": 60,
+          "memory": 128,
+          "layers": []
+        },
+        "triggers": [
+          {
+            "resourceName": "apigapSoutheast2SMSGatewaysendSMSpost",
+            "config": {}
+          }
+        ]
+      }
+    },
+    "rootNode": "d9b0702a-78cd-4065-83e0-6859d244c900",
+    "openFiles": [
+      "b3926aee-2887-415f-9241-e1b899c34b49"
+    ],
+    "currentFileId": "b3926aee-2887-415f-9241-e1b899c34b49",
+    "resources": {
+      "apigapSoutheast2SMSGatewaysendSMSpost": {
+        "name": "apigapSoutheast2SMSGatewaysendSMSpost",
+        "type": "API_GATEWAY",
+        "config": {
+          "selectedRegion": "ap-southeast-2",
+          "apiMode": 0,
+          "apiName": "SMSGateway",
+          "endpointType": "EDGE",
+          "resourceMode": 0,
+          "resourceName": "sendSMS",
+          "resourcePath": "/sendSMS",
+          "restMethod": "POST",
+          "proxyIntegration": false,
+          "enableCORS": false,
+          "stageMode": 0,
+          "stageName": "prod",
+          "mode": 0
+        }
+      },
+      "snsDirectSMSResource": {
+        "name": "snsDirectSMSResource",
+        "type": "SNS",
+        "config": {
+          "snsType": 1,
+          "numbers": [
+            "@{receiver}"
+          ]
+        }
+      }
+    },
+    "customTemplate": {
+      "dialect": null,
+      "definitions": null
+    },
+    "envVariables": [
+      {
+        "lambdaId": "all",
+        "varKey": "SIGMA_AWS_ACC_ID",
+        "varValue": null,
+        "shouldPersist": false,
+        "displayOnly": false,
+        "editable": false
+      }
+    ],
+    "packageJSON": {
+      "dependencies": {
+        "aws-sdk": {
+          "name": "aws-sdk",
+          "language": "javascript",
+          "version": "2.176.0",
+          "dev": true,
+          "notRemovable": false
+        }
+      }
+    }
+  },
+  "PROJECT_META": {
+    "projectName": "SendSMS",
+    "projectDescription": "",
+    "projectVersion": "1.0.0",
+    "projectRegion": "ap-southeast-2",
+    "platform": "AWS",
+    "platformRegions": {},
+    "lastSave": 1579751634892
+  },
+  "VCS_STATE": {
+    "provider": "GitHub",
+    "repo": {
+      "name": "SendSMS",
+      "url": "https://github.com/transparentgeek/SendSMS"
+    }
+  }
+}
